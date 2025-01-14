@@ -1,12 +1,10 @@
 import { useState } from 'react';
-import './styles/App.css';
-import CV from './components/CV';
+import Resume from './components/Resume';
 
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hey</h1>
-      <CV></CV>
+      <Resume></Resume>
     </>
   )
 }
