@@ -36,7 +36,18 @@ function Resume() {
                         }
                         onInputChange={handleInputChange}
                     >
+                    </Section>
 
+                    {/* Education Section */}
+                    <Section
+                        section={resumeData.sections.education}
+                        inputs={
+                            resumeData.sections.education.inputIds.map(
+                                (id) => resumeData.inputs[id]
+                            )
+                        }
+                        onInputChange={handleInputChange}
+                    >
                     </Section>
 
                     <div className="w-full flex justify-end">

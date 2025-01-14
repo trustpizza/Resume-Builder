@@ -1,40 +1,44 @@
-import { render } from "react-dom"
-
-function TextInput({ value, onChange }) {
+function TextInput({ title, value, onChange }) {
     return (
         <>
         <input
-            className="input input-bordered input-info w-full max-w-xs"
+            className="text"
+            placeholder={title}
             type="text"
             value={value}
             onChange={(e) => onChange(e.target.value)}
+            required
         />
         </>
     )
 }
 
-function PhoneInput({ value, onChange }) {
+function PhoneInput({ title, value, onChange }) {
     return (
         <>
         <input
-            className="input input-bordered input-info w-full max-w-xs"
+            className="text"
+            placeholder={title}
             type="tel"
             value={value}
             onChange={(e) => onChange(e.target.value)}
+            required
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
         />
         </>
     )
 }
 
-function EmailInput({ value, onChange }) {
+function EmailInput({ title, value, onChange }) {
     return (
         <>
         <input
-            className="input input-bordered input-info w-full max-w-xs"
+            className="text"
+            placeholder={title}
             type="email"
             value={value}
             onChange={(e) => onChange(e.target.value)}
-            required={true} // Add required attribute for email inputs
+            required
         />
         </>
     )
@@ -44,23 +48,27 @@ function Input({ id, title, type, value, onChange }) {
     const renderInput = () => {
         switch (type) {
             case "text":
-                return <TextInput value={value} onChange={onChange}></TextInput>
+                return <TextInput title={title} value={value} onChange={onChange}></TextInput>
             case "tel":
-                return <PhoneInput value={value} onChange={onChange}/>;
-            case "text":
-                return <TextInput value={value} onChange={onChange}/>;
+                return <PhoneInput title={title} value={value} onChange={onChange}/>;
+            case "email":
+                return <EmailInput title={title} value={value} onChange={onChange}/>;
             default:
-                return <TextInput value={value} onChange={onChange}/>;
+                return <TextInput title={title} value={value} onChange={onChange}/>;
         }
     }
 
     return (
-        <div className="flex md:p-4 pb-2 md:pb-0">
-            <div className="flex gap-4 grow items-center">
-                <label htmlFor={id}>{title}</label>
+        <>
+        <div className="flex items-center gap-2">
+            <label className="input input-bordered flex items-center gap-2" htmlFor={id}>
                 {renderInput()}
-            </div>
+            </label>
+            <button className="btn">
+                Edit
+            </button>
         </div>
+        </>
     )
 }
 
