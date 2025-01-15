@@ -3,12 +3,12 @@ export const initialResumeData = {
       user: {
         id: 0,
         title: "User Information",
-        inputIds: [1,2,3,4],
+        inputIds: [0,1,2,3],
       },
       education: {
         id: 1,
         title: "Education",
-        inputIds: [5,6,7]
+        inputIds: [4,5,6]
       },
       professional: {
         id: 2,
@@ -17,13 +17,14 @@ export const initialResumeData = {
       },
     },
     inputs: {
-      1: { id: 1, title: "First Name", type: "text", value: "" },
-      2: { id: 2, title: "Last Name", type: "text", value: "" },
-      3: { id: 3, title: "Email", type: "email", value: "" },
-      4: { id: 4, title: "Phone", type: "tel", value: "" },
-      5: { id: 5, title: "Institution Name", type: "text", value: "" },
-      6: { id: 6, title: "Field(s) of Study", type: "text", value: "" },
-      7: { id: 7, title: "Dates of Study", type: "date", value: "" }
+      0: { id: 0, title: "First Name", type: "text", value: "" },
+      1: { id: 1, title: "Last Name", type: "text", value: "" },
+      2: { id: 2, title: "Email", type: "email", value: "" },
+      3: { id: 3, title: "Phone", type: "tel", value: "" },
+      4: { id: 4, title: "Institution Name", type: "text", value: "" },
+      5: { id: 5, title: "Field(s) of Study", type: "text", value: "" },
+      6: { id: 6, title: "Dates of Study", type: "date", value: "" },
+      7: { id: 7, title: "", type: "", value: "" }
     },
   };
   

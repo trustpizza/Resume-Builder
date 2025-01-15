@@ -4,6 +4,21 @@ import Section from "./Section";
 import { initialResumeData } from "./items";
 
 
+function newSectionButton() {
+    return (
+        <>
+        <div className="w-full flex">
+            <select className="select select-bordered w-full max-w-xs">
+                <option disabled selected>Who shot first?</option>
+                <option>Han Solo</option>
+                <option>Greedo</option>
+            </select>
+        </div>
+        </>
+    )
+}
+
+
 function Resume() {
     const [resumeData, setResumeData] = useState(initialResumeData);
     const [editableInputId, setEditableInputId] = useState(null);

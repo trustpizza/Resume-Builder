@@ -12,7 +12,7 @@ function TextInput({ title, value, isEditable, onChange }) {
     );
   }
   
-  function PhoneInput({ title, value, isEditable, onChange }) {
+function PhoneInput({ title, value, isEditable, onChange }) {
     return (
       <input
         className="text"
@@ -27,7 +27,7 @@ function TextInput({ title, value, isEditable, onChange }) {
     );
   }
   
-  function EmailInput({ title, value, isEditable, onChange }) {
+function EmailInput({ title, value, isEditable, onChange }) {
     return (
       <input
         className="text"
@@ -40,15 +40,32 @@ function TextInput({ title, value, isEditable, onChange }) {
       />
     );
   }
+
+function DateInput({ title, value, isEditable, onChange }) {
+    return (
+        <input
+            className="text"
+            type="date"
+            placeholder={title}
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            required
+            readOnly={!isEditable}
+        />
+    )
+}
   
-  function Input({ id, title, type, value, onChange, editableInputId, setEditableInputId }) {
+function Input({ id, title, type, value, onChange, editableInputId, setEditableInputId }) {
     const isEditable = editableInputId === id;
+
     const renderInput = () => {
       switch (type) {
         case "tel":
           return <PhoneInput title={title} value={value} onChange={onChange} isEditable={isEditable} />;
         case "email":
           return <EmailInput title={title} value={value} onChange={onChange} isEditable={isEditable} />;
+        case "date":
+            return <DateInput title={title} value={value} onChange={onChange} isEditable={isEditable} />
         case "text":
         default:
           return <TextInput title={title} value={value} onChange={onChange} isEditable={isEditable} />;
@@ -62,7 +79,7 @@ function TextInput({ title, value, isEditable, onChange }) {
         </label>
         <button
           className="btn"
-          onClick={() => setEditableInputId(id)}
+          onClick={() => setEditableInputId(isEditable ? null : id)}
         >
           {isEditable ? "Save" : "Edit"}
         </button>
