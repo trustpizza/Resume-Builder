@@ -4,12 +4,12 @@ import "../styles/Section.css"
 function Section({ section, inputs, onInputChange, editableInputId, setEditableInputId }) {
   return (
     <>
-    <div className="card bg-slate-50 w-96 shadow-xl">
+    <fieldset className="card bg-slate-50 w-96 shadow-xl">
       <div className="card-body">
         <h2 className="card-title">{section.title}</h2>
         {inputs.map((input) => (
           <Input
-            key={input.id}
+            key={`${section.id}-${input.id}`}
             {...input}
             onChange={(value) => onInputChange(input.id, value)}
             editableInputId={editableInputId}
@@ -18,7 +18,7 @@ function Section({ section, inputs, onInputChange, editableInputId, setEditableI
           </Input>
         ))}
       </div>
-    </div>
+    </fieldset>
     </>
   );
 };

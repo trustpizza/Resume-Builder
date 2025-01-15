@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 #cv {
     @apply h-full w-full flex flex-col items-center gap-4
 }

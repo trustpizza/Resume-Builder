@@ -1,9 +1,15 @@
-function TextInput({ title, value, isEditable, onChange }) {
+import "../styles/Input.css";
+
+const enabledClassName = "input input-info w-full max-w-xs underlined";
+const disabledClassName = "input input-bordered w-full max-w-xs";
+
+function TextInput({ title, value, isEditable, onChange, id }) {
     return (
       <input
-        className="text"
+        className={isEditable ? enabledClassName : disabledClassName}
         placeholder={title}
         type="text"
+        id={id}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         readOnly={!isEditable}
@@ -12,13 +18,14 @@ function TextInput({ title, value, isEditable, onChange }) {
     );
   }
   
-function PhoneInput({ title, value, isEditable, onChange }) {
+function PhoneInput({ title, value, isEditable, onChange, id }) {
     return (
       <input
-        className="text"
+        className={isEditable ? enabledClassName : disabledClassName}
         placeholder={title}
         type="tel"
         value={value}
+        id={id}
         onChange={(e) => onChange(e.target.value)}
         required
         pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
@@ -27,13 +34,14 @@ function PhoneInput({ title, value, isEditable, onChange }) {
     );
   }
   
-function EmailInput({ title, value, isEditable, onChange }) {
+function EmailInput({ title, value, isEditable, onChange, id }) {
     return (
       <input
-        className="text"
+        className={isEditable ? enabledClassName : disabledClassName}
         placeholder={title}
         type="email"
         value={value}
+        id={id}
         onChange={(e) => onChange(e.target.value)}
         required
         readOnly={!isEditable}
@@ -41,12 +49,13 @@ function EmailInput({ title, value, isEditable, onChange }) {
     );
   }
 
-function DateInput({ title, value, isEditable, onChange }) {
+function DateInput({ title, value, isEditable, onChange, id }) {
     return (
         <input
-            className="text"
+            className={isEditable ? enabledClassName : disabledClassName}
             type="date"
             placeholder={title}
+            id={id}
             value={value}
             onChange={(e) => onChange(e.target.value)}
             required
@@ -61,14 +70,14 @@ function Input({ id, title, type, value, onChange, editableInputId, setEditableI
     const renderInput = () => {
       switch (type) {
         case "tel":
-          return <PhoneInput title={title} value={value} onChange={onChange} isEditable={isEditable} />;
+          return <PhoneInput title={title} value={value} onChange={onChange} isEditable={isEditable} id={id} />;
         case "email":
-          return <EmailInput title={title} value={value} onChange={onChange} isEditable={isEditable} />;
+          return <EmailInput title={title} value={value} onChange={onChange} isEditable={isEditable} id={id} />;
         case "date":
-            return <DateInput title={title} value={value} onChange={onChange} isEditable={isEditable} />
+            return <DateInput title={title} value={value} onChange={onChange} isEditable={isEditable} id={id} />
         case "text":
         default:
-          return <TextInput title={title} value={value} onChange={onChange} isEditable={isEditable} />;
+          return <TextInput title={title} value={value} onChange={onChange} isEditable={isEditable} id={id} />;
       }
     };
   
@@ -79,7 +88,7 @@ function Input({ id, title, type, value, onChange, editableInputId, setEditableI
         </label>
         <button
           className="btn"
-          onClick={() => setEditableInputId(isEditable ? null : id)}
+          onClick={(e) => setEditableInputId(e, isEditable ? null : id)}
         >
           {isEditable ? "Save" : "Edit"}
         </button>
