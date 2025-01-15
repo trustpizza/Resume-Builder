@@ -12,12 +12,12 @@ function NewSectionButton({ handleClick }) {
         <div className="w-full flex gap-2">
             <select 
                 className="select select-bordered w-full max-w-xs" 
-                onChange={handleSelectChange}
+                onChange={(e) => handleSelectChange(e)}
                 value={selectedSection}
             >
                 <option value="" disabled>Select Section</option>
                 <option value="education">Education</option>
-                <option value="work">Professional Experience</option>
+                <option value="work">Work Experience</option>
             </select>
             <button
                 className="btn btn-primary"

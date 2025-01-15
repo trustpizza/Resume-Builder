@@ -12,8 +12,8 @@ export const initialResumeData = {
       },
       2: {
         id: 2,
-        title: "Professional Experiences",
-        inputIds: []
+        title: "Work Experience",
+        inputIds: [7,8,9,10,11]
       },
     },
     inputs: {
@@ -24,7 +24,11 @@ export const initialResumeData = {
       4: { id: 4, title: "Institution Name", type: "text", value: "" },
       5: { id: 5, title: "Field(s) of Study", type: "text", value: "" },
       6: { id: 6, title: "Dates of Study", type: "date", value: "" },
-      7: { id: 7, title: "", type: "", value: "" }
+      7: { id: 7, title: "Company Name", type: "text", value: "" },
+      8: { id: 8, title: "Position Title", type: "text", value: "" },
+      9: { id: 9, title: "Responsibilities", type: "text", value: "" },
+      10: { id: 10, title: "Start Date", type: "date", value: "" },
+      11: { id: 11, title: "End Date", type: "date", value: "" },
     },
   };
   
