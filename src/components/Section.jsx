@@ -1,7 +1,7 @@
 import Input from './Input';
 import "../styles/Section.css"
 
-function Section({ section, inputs, onInputChange }) {
+function Section({ section, inputs, onInputChange, editableInputId, setEditableInputId }) {
   return (
     <>
     <div className="card bg-slate-50 w-96 shadow-xl">
@@ -12,6 +12,8 @@ function Section({ section, inputs, onInputChange }) {
             key={input.id}
             {...input}
             onChange={(value) => onInputChange(input.id, value)}
+            editableInputId={editableInputId}
+            setEditableInputId={setEditableInputId}         
           >
           </Input>
         ))}

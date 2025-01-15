@@ -5,8 +5,9 @@ import { initialResumeData } from "./items";
 
 
 function Resume() {
-    const [resumeData, setResumeData] = useState(initialResumeData)
-    
+    const [resumeData, setResumeData] = useState(initialResumeData);
+    const [editableInputId, setEditableInputId] = useState(null);
+
     const handleInputChange = (id, value) => {
         setResumeData((prev) => ({
             ...prev,
@@ -16,6 +17,10 @@ function Resume() {
             }
         }));
     };
+
+    const handleEditChange = (id) => {
+        setEditableInputId(id);
+    }
 
     const handlePrint = () => {
         console.log(resumeData)
@@ -35,6 +40,8 @@ function Resume() {
                             )
                         }
                         onInputChange={handleInputChange}
+                        setEditableInputId={handleEditChange}
+                        editableInputId={editableInputId}
                     >
                     </Section>
 
@@ -47,6 +54,8 @@ function Resume() {
                             )
                         }
                         onInputChange={handleInputChange}
+                        setEditableInputId={handleEditChange} // Use the same function for consistency
+                        editableInputId={editableInputId}
                     >
                     </Section>
 
