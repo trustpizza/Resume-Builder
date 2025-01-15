@@ -1,16 +1,16 @@
 export const initialResumeData = {
     sections: {
-      user: {
+      0: {
         id: 0,
         title: "User Information",
         inputIds: [0,1,2,3],
       },
-      education: {
+      1: {
         id: 1,
         title: "Education",
         inputIds: [4,5,6]
       },
-      professional: {
+      2: {
         id: 2,
         title: "Professional Experiences",
         inputIds: []
