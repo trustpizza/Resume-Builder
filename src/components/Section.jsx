@@ -1,8 +1,8 @@
-import { propTypes } from "react";
 import Input from './Input';
 import "../styles/Section.css"
 
 function Section({ section, inputs, onInputChange, editableInputId, setEditableInputId, isDeletable = false, onDelete = null }) {
+  
   return (
     <>
     <fieldset className="card bg-slate-50 w-96 shadow-xl">
