@@ -1,3 +1,4 @@
+import { propTypes } from "react";
 import Input from './Input';
 import "../styles/Section.css"
 
