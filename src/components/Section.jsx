@@ -1,7 +1,7 @@
 import Input from './Input';
 import "../styles/Section.css"
 
-function Section({ section, inputs, onInputChange, editableInputId, setEditableInputId }) {
+function Section({ section, inputs, onInputChange, editableInputId, setEditableInputId, isDeletable = false, onDelete }) {
   return (
     <>
     <fieldset className="card bg-slate-50 w-96 shadow-xl">
@@ -17,7 +17,16 @@ function Section({ section, inputs, onInputChange, editableInputId, setEditableI
           >
           </Input>
         ))}
+
       </div>
+      {isDeletable && (
+        <button
+          className="btn btn-circle bg-red-500 hover:bg-red-600 text-white absolute -top-4 -right-4"
+          onClick={(e) => onDelete(e, section)}
+        >
+          ✕
+        </button>
+      )}
     </fieldset>
     </>
   );

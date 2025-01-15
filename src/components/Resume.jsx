@@ -35,7 +35,7 @@ function Resume() {
         console.log(resumeData);
     }
 
-    const handleNewSectionClick = (e, newSection) => {
+    const handleNewSection = (e, newSection) => {
         e.preventDefault();
         const sectionConfig = {
             education: {
@@ -93,6 +93,31 @@ function Resume() {
         })
     }
 
+    const handleDeleteSection = (e, section) => {
+        e.preventDefault();
+
+        const newSections = Object.fromEntries(
+            Object.entries(resumeData.sections).filter(
+                ([sectionId]) => Number(sectionId) !== section.id
+            )
+        );
+        
+        const newInputs = Object.fromEntries(
+            Object.entries(resumeData.inputs).filter(
+                ([inputId]) => !((section.inputIds || []).includes(Number(inputId)))
+            )
+        );
+        
+
+        setResumeData((prev) => {
+            return {
+                ...prev,
+                inputs: newInputs,
+                sections: newSections,
+            };
+        });
+    }
+
     return (
         <>
         <div className="h-full w-full flex flex-col items-center">
@@ -126,6 +151,8 @@ function Resume() {
                             setEditableInputId={handleEditChange} // Use the same function for consistency
                             editableInputId={editableInputId}
                             key={section.id}
+                            isDeletable={true}
+                            onDelete={handleDeleteSection}
                         >
                         </Section>
                     ))}
@@ -133,7 +160,7 @@ function Resume() {
                     {/* Add A New Section */}
 
                     <NewSectionButton
-                        handleClick={handleNewSectionClick}
+                        handleClick={handleNewSection}
                     >
                     </NewSectionButton>
 

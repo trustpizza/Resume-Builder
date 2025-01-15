@@ -24,6 +24,7 @@ export const initialResumeData = {
       4: { id: 4, title: "Institution Name", type: "text", value: "" },
       5: { id: 5, title: "Field(s) of Study", type: "text", value: "" },
       6: { id: 6, title: "Dates of Study", type: "date", value: "" },
+      7: { id: 7, title: "", type: "", value: "" }
     },
   };
   
